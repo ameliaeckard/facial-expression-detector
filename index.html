@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Expression Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Hamster Face Detection</h1>
+            <p class="header__description">
+                This app detects your hamster's facial expressions in real-time and displays matching content.
+                Click "Start Camera" to begin!
+            </p>
+        </header>
+
+        <main class="app-main">
+            <div class="controls">
+                <button id="startBtn" class="btn btn--primary">Start Camera</button>
+                <button id="stopBtn" class="btn btn--secondary hidden">Stop Camera</button>
+            </div>
+
+            <div id="status" class="status-display">
+                <div class="status-item">
+                    <span class="status-label">Current Expression:</span>
+                    <span id="currentExpression" class="status-value">None detected</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Camera Status:</span>
+                    <span id="cameraStatus" class="status-value">Stopped</span>
+                </div>
+            </div>
+
+            <div class="detection-area">
+                <video id="video" autoplay muted playsinline></video>
+                <canvas id="overlay"></canvas>
+            </div>
+
+            <div class="expression-display">
+                <div id="expressionImage" class="expression-image">
+                    <div class="placeholder-text">Start camera to begin detection</div>
+                </div>
+                
+                <div id="expressionName" class="expression-name">
+                    Waiting for detection...
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Powered by face-api.js | Camera access required for functionality</p>
+        </footer>
+
+        <div id="errorModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Error</h3>
+                <p id="errorMessage">An error occurred</p>
+                <button id="closeErrorModal" class="btn btn--primary">Close</button>
+            </div>
+        </div>
+
+        <div id="loadingModal" class="modal">
+            <div class="modal-content">
+                <h3>Loading...</h3>
+                <p>Downloading face detection models. This may take a moment.</p>
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
