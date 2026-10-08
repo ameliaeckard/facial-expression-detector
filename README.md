@@ -1,38 +1,33 @@
-## Hamster Face Detection
+# Hamster Face _(facial-expression-detector)_
 
-An interactive facial expression detector that displays corresponding hamster images based on detected human expressions.
+A playful browser demo that maps detected facial expressions to matching hamster images.
 
-### Features
-- Real-time facial expression detection using face-api.js
-- 7 expression categories: neutral, happy, sad, angry, fearful, disgusted, surprised
-- Custom hamster image display for each expression
-- Webcam integration with live detection overlay
-- Light/dark theme support
-- Instant image switching with preloading
+## Background
 
-### Tech Stack
-- HTML5/CSS3
-- JavaScript (Vanilla)
-- face-api.js (machine learning library)
-- Canvas API
+This small computer-vision experiment uses face-api.js to detect seven expression categories from a webcam feed and swaps in a corresponding hamster image. It is kept as a lightweight creative CV project.
 
-### File Structure
-```
-HamsterFace/
-├── index.html
-├── style.css
-├── app.js
-└── faces/
-    ├── neutral.jpg
-    ├── happy.jpg
-    ├── sad.jpg
-    ├── angry.jpg
-    ├── disgusted.jpg
-    └── surprised.jpg
+## Install
+
+```bash
+git clone https://github.com/ameliaeckard/facial-expression-detector.git
+cd facial-expression-detector
+python -m http.server 8000
 ```
 
-### Customization
-- Adjust detection sensitivity in `app.js`:
-  - `CONFIDENCE_THRESHOLD`: 0.3-0.7 (default: 0.5)
-  - `UPDATE_INTERVAL`: milliseconds between checks (default: 50)
-  - `EXPRESSION_HOLD_TIME`: milliseconds to hold expression (default: 300)
+## Usage
+
+Open `http://localhost:8000`, allow webcam access, and the page will update the displayed hamster based on the detected expression.
+
+Detection thresholds and timing can be adjusted in `app.js`.
+
+## Maintainer
+
+[Amelia Eckard](https://github.com/ameliaeckard)
+
+## Contributing
+
+Issues are welcome for bugs or documentation problems. Please open an issue before a substantial pull request.
+
+## License
+
+UNLICENSED © Amelia Eckard.
